@@ -1,0 +1,241 @@
+STEP1 OPEN NETBEAS
+STEP 2: Create New Project pangalani og BANKING
+STEP 3: Click BANKING
+          Click Source Packages
+
+            Click mouse two sa banking
+              New --> Java Class -->pangalani og Account
+COPY NI NA CODE:
+package banking;
+
+public class Account {
+    public String name;
+    public String id;
+    public double balance;
+
+    public Account(String name, String id, double balance) {
+        this.name = name;
+        this.id = id;
+        this.balance = balance;
+    }
+}
+
+----------------------------------------------STEP 4:Click mouse two sa banking
+                                                        New --> Java Class -->pangalani og BANKDATA
+package banking;
+
+import java.util.HashMap;
+
+public class BankData {
+
+    private static HashMap<String, Account> accounts = new HashMap<>(); // Shared data
+
+    public static void addAccount(Account account) {
+        accounts.put(account.id, account);
+    }
+
+    public static Account getAccount(String accountId) {
+        return accounts.get(accountId);
+    }
+
+    public static HashMap<String, Account> getAccounts(){
+        return accounts;
+    }
+
+    public static void updateAccount(Account account) {
+        accounts.put(account.id, account); // Update the account in the HashMap
+    }
+}
+
+
+--------------------------------------------------------STEP 5:Click mouse two sa banking
+                                                              New -->JFrame Form -->pangalani og Option
+
+
+package banking;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Option extends javax.swing.JFrame {
+
+    public Option() {
+        initComponents();
+        setLocationRelativeTo(null); // Center the frame
+        setupListeners(); // Call method to setup listeners
+    }
+private void setupListeners() {
+        jButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                create createFrame = new create();
+                createFrame.setVisible(true);
+            }
+        });
+        jButton2.addActionListener(new ActionListener() { // Add this part
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            deposit depositFrame = new deposit();
+            depositFrame.setVisible(true);
+            }
+        });
+        jButton3.addActionListener(new ActionListener() { // withdraw button
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                withdraw withdrawFrame = new withdraw();
+                withdrawFrame.setVisible(true);
+            }
+        });
+        jButton4.addActionListener(new ActionListener() { // balance button
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                balance balanceFrame = new balance();
+                balanceFrame.setVisible(true);
+            }
+        });
+        jButton5.addActionListener(new ActionListener() { // balance button
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                viewD viewDFrame = new viewD();
+                viewDFrame.setVisible(true);
+            }
+        });
+        jButton7.addActionListener(new ActionListener() { // balance button
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                transfer transferFrame = new transfer();
+                transferFrame.setVisible(true);
+            }
+        });
+}
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
+        jLabel2.setText("BANKING SYSTEM");
+
+        jButton1.setBackground(new java.awt.Color(153, 255, 255));
+        jButton1.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton1.setText("Create Account");
+
+        jButton2.setBackground(new java.awt.Color(153, 255, 255));
+        jButton2.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton2.setText("Deposit");
+
+        jButton3.setBackground(new java.awt.Color(153, 255, 255));
+        jButton3.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton3.setText("Withdraw");
+
+        jButton4.setBackground(new java.awt.Color(153, 255, 255));
+        jButton4.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton4.setText("Check Balance");
+
+        jButton5.setBackground(new java.awt.Color(153, 255, 255));
+        jButton5.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton5.setText("View Account Details");
+
+        jButton6.setBackground(new java.awt.Color(153, 255, 255));
+        jButton6.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton6.setText("Exit");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setBackground(new java.awt.Color(153, 255, 255));
+        jButton7.setFont(new java.awt.Font("Sitka Small", 1, 12)); // NOI18N
+        jButton7.setText("Transfer Funds");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(52, 52, 52))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addGap(22, 22, 22))
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        System.exit(0);
+    }                                        
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    public static void main(String args[]) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Option().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMenuItem1;
+    // End of variables declaration                   
+}
